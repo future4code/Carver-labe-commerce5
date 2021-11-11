@@ -2,6 +2,7 @@ import React from 'react';
 
 import Produtos from './components/Produtos/Produtos';
 import Carrinho from './components/Carrinho/Carrinho';
+import { Filtro } from './components/Filtro/Filtro';
 
 export default class App extends React.Component {
   state = {
