@@ -5,9 +5,9 @@ import Carrinho from './components/Carrinho/Carrinho';
 
 export default class App extends React.Component {
   state = {
-    inputFiltroValorMinimo: "",
-    inputFiltroValorMaximo: "",
-    buscarNome: "",
+   minValue: "",
+    maxValue: "",
+    searchName: "",
     listaCarrinho: [],
     listaProdutos: [
       { id: 1, name: "Foguete da Missão Apollo 11", value: 1, imageUrl: "https://picsum.photos/200/200?random=1", },
@@ -39,7 +39,6 @@ export default class App extends React.Component {
     });
 
     produtosExistentes.push(produtoAdicionado)
-
 
     if (produtoAdicionado.length < 1) {
       const novoProduto = {
@@ -88,12 +87,39 @@ export default class App extends React.Component {
     }
   }
 
+  // Filtros:
+
+  updateMinValue = (ev) => {
+    this.setState({
+      minValue: ev.target.value,
+    });
+  };
+  updateMaxValue = (ev) => {
+    this.setState({
+      maxValue: ev.target.value,
+    });
+  };
+  updateSearch = (ev) => {
+    this.setState({
+      searchName: ev.target.value,
+    });
+  };
+
   render() {
     return (
       <div>
         <Produtos listaProdutos={this.state.listaProdutos} adicionarCarrinho={this.adicionarCarrinho} />
         <Carrinho listaCarrinho={this.state.listaCarrinho} removerCarrinho={this.removerCarrinho} />
-      </div >
-    )
+        <Filtro>
+          minValue = {this.state.minValue}
+          maxValue = {this.state.maxValue}
+          searchName={this.state.searchName}
+          updateMinValue = {this.updateMinValue}
+          updateMaxValue = {this.updateMaxValue}
+          updateSearch = {this.updateSearch}
+        </Filtro>
+      </div>
+    );
+
   }
 }
