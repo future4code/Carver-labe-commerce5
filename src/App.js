@@ -1,9 +1,37 @@
-import React from "react";
 
-import Produtos from "./components/Produtos/Produtos";
-import Carrinho from "./components/Carrinho/Carrinho";
-import { Filtro } from "./components/Filtro/Filtro";
-import Cards from "./components/Produtos/CardProduto"
+import React from 'react';
+import styled from 'styled-components';
+
+import Produtos from './components/Produtos/Produtos';
+import Carrinho from './components/Carrinho/Carrinho';
+import { Filtro } from './components/Filtro/Filtro';
+import GlobalStyle from './components/Styles/GlobalStyles';
+
+
+const ContainerHeader = styled.div`
+  background-color: #e8e8e8;
+  height: 5vh;
+`
+
+const ContainerMain = styled.div`
+  display: flex;
+`
+const ContainerPrincipal = styled.div`
+  
+`
+
+const ContainerEsquerda = styled.div`
+  width: 25vw;
+`
+
+const ContainerCentro = styled.div`
+  width: 50vw;
+`
+
+const ContainerDireita = styled.div`
+  width: 25vw;
+`
+
 
 export default class App extends React.Component {
   state = {
@@ -107,7 +135,7 @@ export default class App extends React.Component {
     if (produtoDeletado) {
       const deletarGeral = carrinhoAtual.filter((elemento) => {
         return elemento.id !== idRemocao;
-      });
+      })
 
       this.setState({
         listaCarrinho: deletarGeral,
@@ -122,14 +150,26 @@ export default class App extends React.Component {
   // Filtros:
 
   updateMinValue = (ev) => {
-    this.setState({
-      minValue: ev.target.value,
-    });
+    if (ev.target.value < 0) {
+      this.setState({
+        minValue: "",
+      });
+    } else {
+      this.setState({
+        minValue: ev.target.value,
+      });
+    }
   };
   updateMaxValue = (ev) => {
-    this.setState({
-      maxValue: ev.target.value,
-    });
+    if (ev.target.value < 0) {
+      this.setState({
+        minValue: "",
+      });
+    } else {
+      this.setState({
+        maxValue: ev.target.value,
+      });
+    }
   };
   updateSearch = (ev) => {
     this.setState({
@@ -138,48 +178,48 @@ export default class App extends React.Component {
   };
 
   render() {
+    let listaFiltrada = []
+    const filtrosCriterios = this.state.listaProdutos
+      .filter(produto => {
+        return produto.name.toLowerCase().includes(this.state.searchName.toLowerCase());
+      })
+      .filter(produto => {
+        return this.state.minValue === "" || produto.value >= this.state.minValue;
+      })
+      .filter(produto => {
+        return this.state.maxValue === "" || produto.value <= this.state.maxValue;
+      })
+      .map(produto => {
+        listaFiltrada.push(produto);
+      })
+
     return (
-      <div>
-         <Filtro>
-          minValue = {this.state.minValue}
-          maxValue = {this.state.maxValue}
-          searchName={this.state.searchName}
-          updateMinValue = {this.updateMinValue}
-          updateMaxValue = {this.updateMaxValue}
-          updateSearch = {this.updateSearch}
-        </Filtro>
-        <Produtos
-          listaProdutos={this.state.listaProdutos}
-          adicionarCarrinho={this.adicionarCarrinho}
-        >
-          {this.state.listaProdutos
-            .filter((products) => {
-              return products.name
-                .toLowerCase()
-                .includes(this.state.searchName.toLowerCase());
-            })
-            .filter((products) => {
-              return (
-                this.state.minValue === "" ||
-                products.value >= this.state.minValue
-              );
-            })
-            .filter((products) => {
-              return (
-                this.state.maxValue === "" ||
-                products.value <= this.state.maxValue
-              );
-            })
-            .map(products => {
-                return <Cards key={products.id} products={products} />
-            })
-         }
-        </Produtos>
-        <Carrinho
-          listaCarrinho={this.state.listaCarrinho}
-          removerCarrinho={this.removerCarrinho}
-        />
-      </div>
+
+      <ContainerPrincipal>
+        <ContainerHeader>
+          Header
+        </ContainerHeader>
+        <ContainerMain>
+          <ContainerEsquerda>
+            <Filtro
+              minValue={this.state.minValue}
+              maxValue={this.state.maxValue}
+              searchName={this.state.searchName}
+              updateMinValue={this.updateMinValue}
+              updateMaxValue={this.updateMaxValue}
+              updateSearch={this.updateSearch}
+            />
+          </ContainerEsquerda>
+          <ContainerCentro>
+            <Produtos listaProdutos={listaFiltrada} adicionarCarrinho={this.adicionarCarrinho} />
+          </ContainerCentro>
+          <ContainerDireita>
+            <Carrinho listaCarrinho={this.state.listaCarrinho} removerCarrinho={this.removerCarrinho} />
+          </ContainerDireita>
+        </ContainerMain>
+        <GlobalStyle />
+      </ContainerPrincipal>
+
     );
   }
 }

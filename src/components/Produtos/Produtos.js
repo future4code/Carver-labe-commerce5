@@ -46,6 +46,7 @@ class Produtos extends React.Component {
         }
 
         const listarProdutos = listaProdutos.map((elemento, id) => {
+            console.log("a", listaProdutos.name)
             return (
                 <CardProduto key={id} id={elemento.id} name={elemento.name} value={elemento.value} image={elemento.imageUrl} adicionarCarrinho={this.props.adicionarCarrinho} />
             )
