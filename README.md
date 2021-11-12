@@ -4,7 +4,7 @@
 - Página que simula um e-commerce do nosso querido amigo tecnológico Astrodev. 
 - O projeto foi criado utilizando a tecnologia React.
 - Principais componentes: renderização de produtos em lista, ordenação de listas, filtros, adição e remoção de itens no carrinho.
-- Projeto de fixação desenvolvido por alunos da Labenu_: @rodolforgo @DesenvolvedorDOM23 @gutto-moura 
+- Projeto de fixação desenvolvido por alunos da Labenu_.
 
 ### Link Surge 
 http://astroshop.surge.sh/
