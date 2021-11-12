@@ -19,6 +19,7 @@ const CardContainer = styled.div`
     button {
         margin-top: 1vw;
         width: 80%;
+        font: 11px Roboto, sans-serif;
     }
 `
 

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const ContainerPrincipalProdutos = styled.div`
-    width: 98vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,4 +16,8 @@ export const ContainerHeader = styled.div`
     justify-content: space-between;
     height: 50px;
     width: 48vw;
+    
+    select {
+        font: 11px Roboto, sans-serif;
+    }
 `
