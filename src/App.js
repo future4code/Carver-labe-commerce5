@@ -1,37 +1,13 @@
-
 import React from 'react';
 import styled from 'styled-components';
 
 import Produtos from './components/Produtos/Produtos';
 import Carrinho from './components/Carrinho/Carrinho';
 import { Filtro } from './components/Filtro/Filtro';
+
+
 import GlobalStyle from './components/Styles/GlobalStyles';
-
-
-const ContainerHeader = styled.div`
-  background-color: #e8e8e8;
-  height: 5vh;
-`
-
-const ContainerMain = styled.div`
-  display: flex;
-`
-const ContainerPrincipal = styled.div`
-  
-`
-
-const ContainerEsquerda = styled.div`
-  width: 25vw;
-`
-
-const ContainerCentro = styled.div`
-  width: 50vw;
-`
-
-const ContainerDireita = styled.div`
-  width: 25vw;
-`
-
+import { ContainerHeader, LogoHeader, ContainerMain, ContainerPrincipal, ContainerEsquerda, ContainerCentro, ContainerDireita, ContainerFooter } from './components/Styles/AppStyle';
 
 export default class App extends React.Component {
   state = {
@@ -43,37 +19,37 @@ export default class App extends React.Component {
       {
         id: 1,
         name: "Foguete da Missão Apollo 11",
-        value: 1,
+        value: 400,
         imageUrl: "https://picsum.photos/200/200?random=1",
       },
       {
         id: 2,
-        name: "Satélite Antigo",
-        value: 7,
+        name: "Viagem em Satélite Antigo",
+        value: 100,
         imageUrl: "https://picsum.photos/200/200?random=2",
       },
       {
         id: 3,
-        name: "Roupa Espacial",
-        value: 99,
+        name: "Viagem Volta ao Mundo",
+        value: 500,
         imageUrl: "https://picsum.photos/200/200?random=3",
       },
       {
         id: 4,
         name: "Meteorito",
-        value: 11,
+        value: 700,
         imageUrl: "https://picsum.photos/200/200?random=4",
       },
       {
         id: 5,
         name: "Aerolito",
-        value: 10,
+        value: 700,
         imageUrl: "https://picsum.photos/200/200?random=5",
       },
       {
         id: 6,
         name: "Viagem em Ônibus Espacial",
-        value: 9,
+        value: 1100,
         imageUrl: "https://picsum.photos/200/200?random=6",
       },
     ],
@@ -197,7 +173,10 @@ export default class App extends React.Component {
 
       <ContainerPrincipal>
         <ContainerHeader>
-          Header
+          <LogoHeader>
+            <img src="https://www.pinclipart.com/picdir/big/228-2282702_astro-naughty-clipart.png" alt="Logo AstroShop" />
+            <h3>AstroShop</h3>
+          </LogoHeader>
         </ContainerHeader>
         <ContainerMain>
           <ContainerEsquerda>
@@ -217,6 +196,12 @@ export default class App extends React.Component {
             <Carrinho listaCarrinho={this.state.listaCarrinho} removerCarrinho={this.removerCarrinho} />
           </ContainerDireita>
         </ContainerMain>
+        <ContainerFooter>
+          <p>AstroShop - O astro aqui é você!</p>
+          <a href="http://www.facebook.com" target="_blank"> <img src="https://www.pinclipart.com/picdir/big/150-1504080_facebook-white-facebook-white-icon-png-2018-clipart.png" /> </a>
+          <a href="http://www.instagram.com" target="_blank"> <img src="https://www.pinclipart.com/picdir/big/136-1360011_facebook-instagram-instagram-clipart.png" /> </a>
+          <a href="http://www.youtube.com" target="_blank"> <img src="https://www.pinclipart.com/picdir/big/217-2178146_social-icon-social-icon-social-icon-social-icon.png" /> </a>
+        </ContainerFooter>
         <GlobalStyle />
       </ContainerPrincipal>
 

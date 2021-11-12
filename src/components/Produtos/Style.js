@@ -10,6 +10,7 @@ export const ContainerProdutos = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
     width: 48vw;
+    min-height: 75vh;
 `
 export const ContainerHeader = styled.div`
     display: flex; 
@@ -18,6 +19,6 @@ export const ContainerHeader = styled.div`
     width: 48vw;
     
     select {
-        font: 11px Roboto, sans-serif;
+        font-size: 11px;
     }
 `
