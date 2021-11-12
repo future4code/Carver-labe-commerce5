@@ -10,4 +10,4 @@
 http://astroshop.surge.sh/
 
 ### Imagens
-![image](https://user-images.githubusercontent.com/80327029/141564646-d9c0e7e8-6b9a-435d-9808-eb65ad2ff78d.png)
+![image](https://user-images.githubusercontent.com/80327029/141578556-8f62ab39-b5cc-444e-9713-70f765ce25ae.png)
