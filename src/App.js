@@ -1,3 +1,4 @@
+
 import React from 'react';
 import styled from 'styled-components';
 
@@ -39,14 +40,44 @@ export default class App extends React.Component {
     searchName: "",
     listaCarrinho: [],
     listaProdutos: [
-      { id: 1, name: "Foguete da Missão Apollo 11", value: 1, imageUrl: "https://picsum.photos/200/200?random=1", },
-      { id: 2, name: "Satélite Antigo", value: 7, imageUrl: "https://picsum.photos/200/200?random=2", },
-      { id: 3, name: "Roupa Espacial", value: 99, imageUrl: "https://picsum.photos/200/200?random=3", },
-      { id: 4, name: "Meteorito", value: 11, imageUrl: "https://picsum.photos/200/200?random=4", },
-      { id: 5, name: "Aerolito", value: 10, imageUrl: "https://picsum.photos/200/200?random=5", },
-      { id: 6, name: "Viagem em Ônibus Espacial", value: 9, imageUrl: "https://picsum.photos/200/200?random=6", },
-    ]
-  }
+      {
+        id: 1,
+        name: "Foguete da Missão Apollo 11",
+        value: 1,
+        imageUrl: "https://picsum.photos/200/200?random=1",
+      },
+      {
+        id: 2,
+        name: "Satélite Antigo",
+        value: 7,
+        imageUrl: "https://picsum.photos/200/200?random=2",
+      },
+      {
+        id: 3,
+        name: "Roupa Espacial",
+        value: 99,
+        imageUrl: "https://picsum.photos/200/200?random=3",
+      },
+      {
+        id: 4,
+        name: "Meteorito",
+        value: 11,
+        imageUrl: "https://picsum.photos/200/200?random=4",
+      },
+      {
+        id: 5,
+        name: "Aerolito",
+        value: 10,
+        imageUrl: "https://picsum.photos/200/200?random=5",
+      },
+      {
+        id: 6,
+        name: "Viagem em Ônibus Espacial",
+        value: 9,
+        imageUrl: "https://picsum.photos/200/200?random=6",
+      },
+    ],
+  };
 
   // Funções
 
@@ -75,21 +106,21 @@ export default class App extends React.Component {
         name: name,
         value: value,
         qtd: 1,
-      }
-      const novaLista = [...this.state.listaCarrinho, novoProduto]
+      };
+      const novaLista = [...this.state.listaCarrinho, novoProduto];
       this.setState({
         listaCarrinho: novaLista,
-      })
+      });
     } else {
       this.setState({
         listaCarrinho: produtosExistentes && carrinhoAtual,
-      })
+      });
     }
-  }
+  };
 
   // Remover carrinho:
   removerCarrinho = (idRemocao) => {
-    const carrinhoAtual = [...this.state.listaCarrinho]
+    const carrinhoAtual = [...this.state.listaCarrinho];
     let produtoDeletado;
 
     for (let i = 0; i < carrinhoAtual.length; i++) {
@@ -108,13 +139,13 @@ export default class App extends React.Component {
 
       this.setState({
         listaCarrinho: deletarGeral,
-      })
+      });
     } else {
       this.setState({
         listaCarrinho: carrinhoAtual,
-      })
+      });
     }
-  }
+  };
 
   // Filtros:
 
@@ -163,6 +194,7 @@ export default class App extends React.Component {
       })
 
     return (
+
       <ContainerPrincipal>
         <ContainerHeader>
           Header
@@ -187,6 +219,7 @@ export default class App extends React.Component {
         </ContainerMain>
         <GlobalStyle />
       </ContainerPrincipal>
+
     );
   }
 }

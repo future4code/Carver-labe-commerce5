@@ -1,5 +1,4 @@
 import React from "react";
-
 import CardProduto from "./CardProduto";
 import { ContainerProdutos, ContainerHeader, ContainerPrincipalProdutos } from "./Style";
 
