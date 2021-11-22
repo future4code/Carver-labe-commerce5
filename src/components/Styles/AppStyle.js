@@ -31,32 +31,37 @@ export const ContainerMain = styled.div`
   display: flex;
 `
 export const ContainerPrincipal = styled.div`
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 export const ContainerEsquerda = styled.div`
-  width: 22vw;
+  width: 18vw;
 `
 
 export const ContainerCentro = styled.div`
-  width: 50vw;
+  width: 55vw;
 `
 
 export const ContainerDireita = styled.div`
-  width: 28vw;
+  width: 24vw;
 `
 
 export const ContainerFooter = styled.footer`
+  align-self: stretch;
   height: 9vh;
   text-align: center;
   background-color: #887e92;
 
   p {
     color: white;
-    padding: 0.5vh;
   }
     img {
-      width: 1.3vw;
-      margin-right: 1vw;
+      width: 1vw;
+      margin-right: 1.2vw;
+  }
+  a {
+    text-decoration: none;
   }
 `
