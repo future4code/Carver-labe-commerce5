@@ -55,6 +55,29 @@ export default class App extends React.Component {
     ],
   };
 
+  // Ciclos de vida:
+
+  salvarLocalStorage = () => {
+    localStorage.setItem("carrinho", JSON.stringify(this.state.listaCarrinho))
+  }
+
+  buscarLocalStorage = () => {
+    const carrinhoLocalStorage = localStorage.getItem("carrinho")
+    const carrinhoParse = JSON.parse(carrinhoLocalStorage)
+
+    this.setState({
+      listaCarrinho: carrinhoParse || [],
+    })
+  }
+
+  componentDidMount = () => {
+      this.buscarLocalStorage();
+  }
+
+  componentDidUpdate = (prevProps, prevState) => {
+    this.salvarLocalStorage();
+  }
+
   // Funções
 
   // Adicionar Carrinho

@@ -10,7 +10,7 @@ export const ContainerProdutos = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
     width: 48vw;
-    min-height: 75vh;
+    min-height: 76.4vh;
 `
 export const ContainerHeader = styled.div`
     display: flex; 
